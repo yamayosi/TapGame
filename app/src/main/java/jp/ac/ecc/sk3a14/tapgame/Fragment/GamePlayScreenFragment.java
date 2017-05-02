@@ -1,8 +1,6 @@
 package jp.ac.ecc.sk3a14.tapgame.Fragment;
 
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.v4.app.Fragment;
@@ -19,14 +17,16 @@ import jp.ac.ecc.sk3a14.tapgame.Activity.ResultActivity;
 import jp.ac.ecc.sk3a14.tapgame.R;
 
 /**
- *
+ * ゲームのプレイ画面
  */
 public class GamePlayScreenFragment extends Fragment {
 
+    //インテント用のキー
     public static final String TAG = "gpsf";
 
-    //タップした回数
-    private TextView mCounter;
+    //タップした回数を表示する
+    private TextView mCountView;
+    private int count;
 
     //タップ対象の画像
     private ImageView mTarget;
@@ -34,20 +34,38 @@ public class GamePlayScreenFragment extends Fragment {
     //制限時間
     private final Long TIME_LIMIT = 10000L;
 
+    //デフォルトコンストラクタ
     public GamePlayScreenFragment() { }
 
+    /**
+     * インスタンスを生成するクラスメソッド
+     * @return インスタンス
+     */
     public static GamePlayScreenFragment newInstance() { return new GamePlayScreenFragment(); }
 
+    /**
+     * フラグメントの生成時に呼び出されるメソッド
+     * @param savedInstanceState
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); }
 
+    /**
+     * 初めてUIを描画するタイミングで呼ばれるメソッド
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return フラグメントレイアウトのルートView
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_game_play_screen, container, false);
 
+        //変数の初期化
         initFields(view);
 
+        //ゲームスタート
         startGame();
 
         return view;
@@ -66,24 +84,17 @@ public class GamePlayScreenFragment extends Fragment {
     private void initFields(View view){
 
         //タップ回数を表示するTextView
-        mCounter = findViewById(view, R.id.counter);
-        mCounter.setText("0");
-
-        GradientDrawable drawable = new GradientDrawable();
-        drawable.setStroke(3, Color.parseColor("#000000"));
-        mCounter.setBackground(drawable);
+        mCountView = findViewById(view, R.id.counter);
+        count = 0;
+        mCountView.setText(String.valueOf(count));
 
         //タップする画像
         mTarget = findViewById(view, R.id.target);
 
         //クリックでカウントアップ
-        mTarget.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int count = Integer.parseInt(mCounter.getText().toString());
+        mTarget.setOnClickListener(v -> {
                 count++;
-                mCounter.setText(String.valueOf(count));
-            }
+                mCountView.setText(String.valueOf(count));
         });
     }
 

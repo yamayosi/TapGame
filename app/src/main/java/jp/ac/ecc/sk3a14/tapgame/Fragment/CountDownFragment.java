@@ -18,25 +18,46 @@ import jp.ac.ecc.sk3a14.tapgame.R;
  */
 public class CountDownFragment extends Fragment {
 
+    //インテント用のキー
     public static final String TAG = "cdf";
 
+    //デフォルトコンストラクタ
     public CountDownFragment() { }
 
+    /**
+     * インスタンスを生成するクラスメソッド
+     * @return フラグメント
+     */
     public static CountDownFragment newInstance() { return new CountDownFragment(); }
 
+    /**
+     * フラグメントの生成時に呼び出されるメソッド
+     * @param savedInstanceState
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); }
 
+    /**
+     * 初めてUIを描画するタイミングで呼ばれるメソッド
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return フラグメントレイアウトのルートView
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_count_down, container, false);
 
+        //カウントダウンスタート
         startCountDown();
 
         return view;
     }
 
+    /**
+     * カウントダウンを始めるメソッド
+     */
     private void startCountDown(){
 
         //5秒で画面遷移するタスクを生成
