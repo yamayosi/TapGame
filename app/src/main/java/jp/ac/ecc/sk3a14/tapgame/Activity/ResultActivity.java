@@ -44,18 +44,18 @@ public class ResultActivity extends AppCompatActivity {
 		
 		if(mScore >= 110){
 			
-			mRankImage.setImageDrawable(getResources().getDrawable(R.drawable.s));
+			mRankImage.setImageDrawable(getResources().getDrawable(R.drawable.activity_result_img_s));
 		}else if (mScore >= 80){
 			//A
-			mRankImage.setImageDrawable(getResources().getDrawable(R.drawable.a));
+			mRankImage.setImageDrawable(getResources().getDrawable(R.drawable.activity_result_img_a));
 		}else if (mScore >= 50){
 			//B
-			mRankImage.setImageDrawable(getResources().getDrawable(R.drawable.b));
+			mRankImage.setImageDrawable(getResources().getDrawable(R.drawable.activity_result_img_b));
 		}else if (mScore >= 30) {
 			//C
-			mRankImage.setImageDrawable(getResources().getDrawable(R.drawable.c));
+			mRankImage.setImageDrawable(getResources().getDrawable(R.drawable.activity_result_img_c));
 		}else {
-			mRankImage.setImageDrawable(getResources().getDrawable(R.drawable.d));
+			mRankImage.setImageDrawable(getResources().getDrawable(R.drawable.activity_result_img_d));
 		}
         //トップへボタンのクリックイベント
         mButton.setOnClickListener(v -> {

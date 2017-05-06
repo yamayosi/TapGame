@@ -2,7 +2,7 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-                                             android:background="@drawable/taiko2"
+                                             android:background="@drawable/activity_result_bg"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="jp.ac.ecc.sk3a14.tapgame.Activity.ResultActivity">
@@ -55,7 +55,7 @@
         android:id="@+id/rankImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/a"
+
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
         android:layout_marginLeft="16dp"
