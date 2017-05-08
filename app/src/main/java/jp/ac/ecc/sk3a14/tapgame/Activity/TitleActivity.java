@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.EditText;
 
+import jp.ac.ecc.sk3a14.tapgame.MyApplication;
 import jp.ac.ecc.sk3a14.tapgame.R;
 
 /**
@@ -56,6 +57,9 @@ public class TitleActivity extends AppCompatActivity {
                 .setMessage("名前を入力してください!")
                 .setView(mEditText)
                 .setPositiveButton("OK", (dialog, witch) -> {
+	
+	                MyApplication.createPlayer(mEditText.getText().toString());//ユーザ作成
+	                
                     //OKのときゲーム画面に遷移
                     Intent intent = new Intent();
                     intent.setClass(getApplicationContext(), GameScreenActivity.class);
