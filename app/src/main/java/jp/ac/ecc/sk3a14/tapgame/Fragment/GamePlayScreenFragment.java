@@ -66,9 +66,6 @@ public class GamePlayScreenFragment extends Fragment {
         //変数の初期化
         initFields(view);
 
-        //ゲームスタート
-        startGame();
-
         return view;
     }
 
@@ -102,13 +99,13 @@ public class GamePlayScreenFragment extends Fragment {
     /**
      * ゲームスタート
      */
-    private void startGame(){
+    public void startGame(){
 
         //制限時間
         TimerTask task = new TimerTask() {
             public void run() {
-	
-	            MyApplication.getPlayerInstance().setScore(count);
+              
+	              MyApplication.getPlayerInstance().setScore(count);
 	            
                 //画面遷移
                 Intent intent = new Intent();
