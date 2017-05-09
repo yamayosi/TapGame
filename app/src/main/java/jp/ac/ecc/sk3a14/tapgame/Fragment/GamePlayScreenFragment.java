@@ -14,6 +14,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import jp.ac.ecc.sk3a14.tapgame.Activity.ResultActivity;
+import jp.ac.ecc.sk3a14.tapgame.MyApplication;
 import jp.ac.ecc.sk3a14.tapgame.R;
 
 /**
@@ -103,6 +104,9 @@ public class GamePlayScreenFragment extends Fragment {
         //制限時間
         TimerTask task = new TimerTask() {
             public void run() {
+              
+	              MyApplication.getPlayerInstance().setScore(count);
+	            
                 //画面遷移
                 Intent intent = new Intent();
                 intent.setClass(getContext(), ResultActivity.class);
