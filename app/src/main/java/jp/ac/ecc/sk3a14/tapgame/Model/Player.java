@@ -17,7 +17,7 @@ public class Player {
 
     /**
      * プレイヤー情報を初期化するコンストラクタ
-     * score はデフォルトで 0
+     * score はデフォルトで count0
      * @param name 名前
      */
     public Player(String name){

@@ -2,11 +2,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="jp.ac.ecc.sk3a14.tapgame.Fragment.CountDownFragment">
+    tools:context="jp.ac.ecc.sk3a14.tapgame.Fragment.CountDownFragment"
+    android:clickable="true">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="カウントダウン画面"/>
+        android:id="@+id/countDown"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:textAlignment="center"
+        android:text="5"
+        android:textSize="250dp"
+        android:textColor="@color/countDownText"
+        android:background="@color/countDownBack"/>
 
 </FrameLayout>
