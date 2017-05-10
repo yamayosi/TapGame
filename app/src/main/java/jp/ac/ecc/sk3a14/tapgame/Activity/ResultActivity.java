@@ -3,6 +3,7 @@ package jp.ac.ecc.sk3a14.tapgame.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.widget.Button;
@@ -65,23 +66,23 @@ public class ResultActivity extends AppCompatActivity {
 		if(mScore >= 110){
 			
 			//Sランクの画像にセット
-			mRankImage.setImageDrawable(getResources().getDrawable(R.drawable.activity_result_img_s));
+			mRankImage.setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.activity_result_img_s, null));
 		}else if (mScore >= 80){
 			
 			//Aランクの画像にセット
-			mRankImage.setImageDrawable(getResources().getDrawable(R.drawable.activity_result_img_a));
+			mRankImage.setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.activity_result_img_a, null));
 		}else if (mScore >= 50){
 			
 			//Bランクの画像にセット
-			mRankImage.setImageDrawable(getResources().getDrawable(R.drawable.activity_result_img_b));
+			mRankImage.setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.activity_result_img_b, null));
 		}else if (mScore >= 30) {
 			
 			//Cランクの画像にセット
-			mRankImage.setImageDrawable(getResources().getDrawable(R.drawable.activity_result_img_c));
+			mRankImage.setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.activity_result_img_c, null));
 		}else {
 			
 			//Dランクの画像にセット
-			mRankImage.setImageDrawable(getResources().getDrawable(R.drawable.activity_result_img_d));
+			mRankImage.setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.activity_result_img_d, null));
 		}
 		
         //トップへボタンのクリックイベント
