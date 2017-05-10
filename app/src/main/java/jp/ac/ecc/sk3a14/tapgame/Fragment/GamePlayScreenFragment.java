@@ -16,6 +16,7 @@ import com.daimajia.androidanimations.library.YoYo;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import jp.ac.ecc.sk3a14.tapgame.Activity.Crosslink;
 import jp.ac.ecc.sk3a14.tapgame.Activity.ResultActivity;
 import jp.ac.ecc.sk3a14.tapgame.MyApplication;
 import jp.ac.ecc.sk3a14.tapgame.R;
@@ -85,9 +86,9 @@ public class GamePlayScreenFragment extends Fragment {
     private void initFields(View view){
 
         //タップ回数を表示するTextView
-        mCountView = findViewById(view, R.id.counter);
+//        mCountView = findViewById(view, R.id.counter);
         count = 0;
-        mCountView.setText(String.valueOf(count));
+//        mCountView.setText(String.valueOf(count));
 
         //タップする画像
         mTarget = findViewById(view, R.id.target);
@@ -96,7 +97,7 @@ public class GamePlayScreenFragment extends Fragment {
         mTarget.setOnClickListener(v -> {
             YoYo.with(Techniques.RubberBand).duration(200).playOn(mTarget);
             count++;
-            mCountView.setText(String.valueOf(count));
+//            mCountView.setText(String.valueOf(count));
         });
     }
 
@@ -113,7 +114,7 @@ public class GamePlayScreenFragment extends Fragment {
 
                 //画面遷移
                 Intent intent = new Intent();
-                intent.setClass(getContext(), ResultActivity.class);
+                intent.setClass(getContext(), Crosslink.class);
                 startActivity(intent);
 
                 //タイマーを止める

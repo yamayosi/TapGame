@@ -36,5 +36,21 @@ dependencies {
     compile 'com.android.support:support-compat:25.1.1'
     compile 'com.daimajia.easing:library:2.0@aar'
     compile 'com.daimajia.androidanimations:library:2.2@aar'
+    compile 'com.android.support:design:25.3.1'
     testCompile 'junit:junit:4.12'
+    String htextview_version = "0.1.1"
+
+    compile "com.hanks:htextview-base:$htextview_version"    // base library
+
+    compile "com.hanks:htextview-fade:$htextview_version"        // optional
+    compile "com.hanks:htextview-line:$htextview_version"        // optional
+    compile "com.hanks:htextview-rainbow:$htextview_version"     // optional
+    compile "com.hanks:htextview-fade:$htextview_version"        // optional
+    compile "com.hanks:htextview-typer:$htextview_version"       // optional
+
+    compile "com.hanks:htextview-scale:$htextview_version"       // optional
+    compile "com.hanks:htextview-evaporate:$htextview_version"   // optional
+    compile "com.hanks:htextview-fall:$htextview_version"        // optional
+
+    compile 'com.github.2359media:EasyAndroidAnimations:0.8'
 }
