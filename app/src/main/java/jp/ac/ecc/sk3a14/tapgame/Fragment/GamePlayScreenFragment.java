@@ -112,7 +112,7 @@ public class GamePlayScreenFragment extends Fragment {
         mTarget = findViewById(view, R.id.target);
 
         mSoundPool = new SoundPool(1, AudioManager.STREAM_MUSIC, 0);
-        tapEffect = mSoundPool.load(getContext(), R.raw.tap, 1);
+        tapEffect = mSoundPool.load(getContext(), R.raw.tap1, 1);
 
 
         //クリックでカウントアップ
