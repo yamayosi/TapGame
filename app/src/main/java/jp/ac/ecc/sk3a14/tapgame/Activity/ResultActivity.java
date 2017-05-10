@@ -132,8 +132,6 @@ public class ResultActivity extends AppCompatActivity {
 			new Thread(run).start();
 			
 		});
-		
-		
     }
 	
     

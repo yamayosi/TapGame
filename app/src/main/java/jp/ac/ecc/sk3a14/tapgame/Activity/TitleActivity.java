@@ -4,8 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.GlideDrawableImageViewTarget;
 
 import jp.ac.ecc.sk3a14.tapgame.MyApplication;
 import jp.ac.ecc.sk3a14.tapgame.R;
@@ -16,7 +20,7 @@ import jp.ac.ecc.sk3a14.tapgame.R;
 public class TitleActivity extends AppCompatActivity {
 
     //スタートボタン
-    private Button mButton;
+    private TextView mTextView;
 
     //初めに名前を入力するEditText
     private EditText mEditText;
@@ -37,7 +41,7 @@ public class TitleActivity extends AppCompatActivity {
         initFields();
 
         //スタートボタンをクリックしたときのダイアログを表示
-        mButton.setOnClickListener(v -> mDialog.show());
+        mTextView.setOnClickListener(v -> mDialog.show());
     }
 
     /**
@@ -47,7 +51,11 @@ public class TitleActivity extends AppCompatActivity {
     private void initFields() {
 
         //スタートボタン
-        mButton = (Button) findViewById(R.id.startButton);
+        mTextView = (TextView) findViewById(R.id.startButton);
+
+        ImageView imageView = (ImageView) findViewById(R.id.titleLogo);
+        GlideDrawableImageViewTarget target = new GlideDrawableImageViewTarget(imageView);
+        Glide.with(this).load(R.raw.title_logo).into(target);
 
         //名前入力用
         mEditText = new EditText(this);

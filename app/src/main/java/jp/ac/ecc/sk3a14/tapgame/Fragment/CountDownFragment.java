@@ -6,21 +6,17 @@ import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.content.res.ResourcesCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.os.Handler;
 import android.widget.TextView;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
-import java.util.function.IntToDoubleFunction;
 
 import jp.ac.ecc.sk3a14.tapgame.Activity.GameScreenActivity;
 import jp.ac.ecc.sk3a14.tapgame.R;
@@ -138,13 +134,10 @@ public class CountDownFragment extends Fragment {
      * @return
      */
     private ThreadFactory makeThreadFactory(final int priority){
-        return new ThreadFactory() {
-            @Override
-            public Thread newThread(@NonNull Runnable r) {
+        return r -> {
                 Thread tHread = new Thread(r);
                 tHread.setPriority(priority);
                 return tHread;
-            }
         };
     }
 
@@ -164,15 +157,12 @@ public class CountDownFragment extends Fragment {
                     e.printStackTrace();
                 }
                 for(int i = 0; i < 5;i++) {
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                              mCountDownImageView.setText(String.valueOf(counter));
-                            if(counter > 0){
-                                mSoundPool.play(mSoundId1, 1.0f,1.0f,0,0,1);
-                            }else{
-                                mSoundPool.play(mSoundId2, 1.0f,1.0f,0,0,1);
-                            }
+                    handler.post(() -> {
+                        mCountDownImageView.setText(String.valueOf(counter));
+                        if(counter > 0){
+                            mSoundPool.play(mSoundId1, 1.0f,1.0f,0,0,1);
+                        }else{
+                            mSoundPool.play(mSoundId2, 1.0f,1.0f,0,0,1);
                         }
                     });
                     counter--;

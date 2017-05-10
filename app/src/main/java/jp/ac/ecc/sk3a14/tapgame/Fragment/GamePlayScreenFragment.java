@@ -91,8 +91,8 @@ public class GamePlayScreenFragment extends Fragment {
 
         //クリックでカウントアップ
         mTarget.setOnClickListener(v -> {
-                count++;
-                mCountView.setText(String.valueOf(count));
+            count++;
+            mCountView.setText(String.valueOf(count));
         });
     }
 
@@ -104,9 +104,9 @@ public class GamePlayScreenFragment extends Fragment {
         //制限時間
         TimerTask task = new TimerTask() {
             public void run() {
-              
-	              MyApplication.getPlayerInstance().setScore(count);
-	            
+
+                MyApplication.getPlayerInstance().setScore(count);
+
                 //画面遷移
                 Intent intent = new Intent();
                 intent.setClass(getContext(), ResultActivity.class);
