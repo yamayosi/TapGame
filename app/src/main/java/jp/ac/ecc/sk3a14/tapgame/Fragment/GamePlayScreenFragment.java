@@ -1,6 +1,9 @@
 package jp.ac.ecc.sk3a14.tapgame.Fragment;
 
 import android.content.Intent;
+import android.media.AudioAttributes;
+import android.media.AudioManager;
+import android.media.SoundPool;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.v4.app.Fragment;
@@ -17,7 +20,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import jp.ac.ecc.sk3a14.tapgame.Activity.Crosslink;
-import jp.ac.ecc.sk3a14.tapgame.Activity.ResultActivity;
 import jp.ac.ecc.sk3a14.tapgame.MyApplication;
 import jp.ac.ecc.sk3a14.tapgame.R;
 
@@ -39,24 +41,37 @@ public class GamePlayScreenFragment extends Fragment {
     //制限時間
     private final Long TIME_LIMIT = 10000L;
 
+    //音声周り
+    private AudioAttributes mAudioAttributes;
+    private SoundPool mSoundPool;
+    private int tapEffect;
+
     //デフォルトコンストラクタ
-    public GamePlayScreenFragment() { }
+    public GamePlayScreenFragment() {
+    }
 
     /**
      * インスタンスを生成するクラスメソッド
+     *
      * @return インスタンス
      */
-    public static GamePlayScreenFragment newInstance() { return new GamePlayScreenFragment(); }
+    public static GamePlayScreenFragment newInstance() {
+        return new GamePlayScreenFragment();
+    }
 
     /**
      * フラグメントの生成時に呼び出されるメソッド
+     *
      * @param savedInstanceState
      */
     @Override
-    public void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); }
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 
     /**
      * 初めてUIを描画するタイミングで呼ばれるメソッド
+     *
      * @param inflater
      * @param container
      * @param savedInstanceState
@@ -75,15 +90,18 @@ public class GamePlayScreenFragment extends Fragment {
 
     /**
      * キャストなしでfindViewByIdを使えるようにする
+     *
      * @param view
      * @param id
      * @param <T>
      * @return
      */
-    private <T extends View> T findViewById(View view, @IdRes int id){ return (T)view.findViewById(id); }
+    private <T extends View> T findViewById(View view, @IdRes int id) {
+        return (T) view.findViewById(id);
+    }
 
     //変数の初期化
-    private void initFields(View view){
+    private void initFields(View view) {
 
         //タップ回数を表示するTextView
 //        mCountView = findViewById(view, R.id.counter);
@@ -93,10 +111,18 @@ public class GamePlayScreenFragment extends Fragment {
         //タップする画像
         mTarget = findViewById(view, R.id.target);
 
+        mSoundPool = new SoundPool(1, AudioManager.STREAM_MUSIC, 0);
+        tapEffect = mSoundPool.load(getContext(), R.raw.tap, 1);
+
+
         //クリックでカウントアップ
         mTarget.setOnClickListener(v -> {
+
+            //タップ時のアニメーション。
             YoYo.with(Techniques.RubberBand).duration(200).playOn(mTarget);
             count++;
+            //タップ時の音
+            mSoundPool.play(tapEffect, 0.5f, 0.5f, 0, 0, 1);
 //            mCountView.setText(String.valueOf(count));
         });
     }
@@ -104,7 +130,7 @@ public class GamePlayScreenFragment extends Fragment {
     /**
      * ゲームスタート
      */
-    public void startGame(){
+    public void startGame() {
 
         //制限時間
         TimerTask task = new TimerTask() {
