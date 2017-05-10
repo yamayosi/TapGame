@@ -12,29 +12,11 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\2150084.MAETEL\AppData\Local\Android\sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.2\constraint-layout-solver-1.0.2.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
-        <dex dex="C:\Android\TapGame\TapGame\app\build\intermediates\transforms\dex\debug\folders\1000\10\constraint-layout-solver-1.0.2_1adf490a29a0e3fb099dcded4a7191b34de58a1e\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\2150084.MAETEL\.android\build-cache\5f9e1d5bd3de6197b0d9f0058374d46a0d80deed\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
-        <dex dex="C:\Android\TapGame\TapGame\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_fe19b758adbd87aebc9c9cdd2b8d16c3c0cd37c6\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Android\TapGame\TapGame\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="4c75fc132fc2ca75a012c4a6fdaa657e63d00e8d">
+        sha1="2605f091a650acd8eb33216122bfc1af5a2e80a4">
         <dex dex="C:\Android\TapGame\TapGame\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_de4c53faa00269f08749df6c33413ca5718e0aae\classes.dex" />
     </item>
 
