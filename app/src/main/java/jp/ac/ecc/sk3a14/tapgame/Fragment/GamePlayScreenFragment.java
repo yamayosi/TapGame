@@ -10,6 +10,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -91,6 +94,7 @@ public class GamePlayScreenFragment extends Fragment {
 
         //クリックでカウントアップ
         mTarget.setOnClickListener(v -> {
+            YoYo.with(Techniques.RubberBand).duration(200).playOn(mTarget);
             count++;
             mCountView.setText(String.valueOf(count));
         });
